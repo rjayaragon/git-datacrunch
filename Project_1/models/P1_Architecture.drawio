@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="H8KH-iqJQkcAS56kA2J-" name="Page-1">
+        <mxGraphModel dx="1449" dy="711" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Architecture Diagram Week 1: Initial ETL Set-Up&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="30" y="10" width="790" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Source Data:&lt;div&gt;customers.csv&lt;/div&gt;&lt;div&gt;orders.csv&lt;/div&gt;&lt;div&gt;products.csv&lt;/div&gt;&lt;div&gt;sales.csv&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="96.25" width="140" height="132.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="4" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="ETL Scripts:&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;Extract&lt;div&gt;&lt;font&gt;▼&lt;br&gt;&lt;/font&gt;&lt;b&gt;Transform and&amp;nbsp;&lt;/b&gt;&lt;b style=&quot;background-color: transparent;&quot;&gt;Load&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="80" width="120" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="6" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;PostgreSQL Database -&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;(Dockerized)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;dim_customers&lt;/div&gt;&lt;div&gt;dim_orders&lt;/div&gt;&lt;div&gt;dim_products&lt;/div&gt;&lt;div&gt;star_sales&lt;br&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="405" y="80" width="230" height="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Analytics&lt;br&gt;SQL Queries" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="132.5" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
