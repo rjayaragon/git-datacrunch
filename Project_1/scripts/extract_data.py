@@ -15,10 +15,6 @@ logging.info("Loading customers.csv")
 customers_df = pd.read_csv(os.path.join(data_folder, "customers.csv"))
 logging.info(f"Loaded customers.csv with shape: {customers_df.shape}")
 
-logging.info("Loading orders.csv")
-orders_df = pd.read_csv(os.path.join(data_folder, "orders.csv"))
-logging.info(f"Loading orders.csv with shape: {orders_df.shape}")
-
 logging.info("Loading products.csv")
 products_df = pd.read_csv(os.path.join(data_folder, "products.csv"))
 logging.info(f"Loading products.csv with shape: {products_df.shape}")
@@ -30,8 +26,6 @@ logging.info(f"Loading sales.csv with shape: {sales_df.shape}")
 # inspect file
 print("Customers Schema:")
 print(customers_df.dtypes)
-print("Orders Schema:")
-print(orders_df.dtypes)
 print("Products Schema:")
 print(products_df.dtypes)
 print("Sales Schema:")
@@ -94,9 +88,6 @@ customers_df["signup_date"] = pd.to_datetime(
 # orders cleaning
 print("\ncleaned_orders.csv")
 
-# fix order_date format
-orders_df["order_date"] = pd.to_datetime(orders_df["order_date"], errors="coerce")
-
 logging.info("Corrected spelling under category_column.")
 print("\ncleaned_products.csv")
 # fix common typos
@@ -118,7 +109,6 @@ warehouse = "warehouse"
 os.makedirs(warehouse, exist_ok=True)
 
 customers_df.to_csv(os.path.join(warehouse, "dim_customers.csv"), index=False)
-orders_df.to_csv(os.path.join(warehouse, "dim_orders.csv"), index=False)
 products_df.to_csv(os.path.join(warehouse, "dim_products.csv"), index=False)
 sales_df.to_csv(os.path.join(warehouse, "star_sales.csv"), index=False)
 
