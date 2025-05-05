@@ -6,7 +6,7 @@ from io import StringIO
 # Database connection config
 DB_CONFIG = {
     "host": "127.0.0.1",
-    "port": "5434",  # ← FIXED!
+    "port": "5434",  # Fixed from '5432'
     "dbname": "project1_db",
     "user": "admin",
     "password": "admin123",
