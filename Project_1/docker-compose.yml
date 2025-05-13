@@ -1,18 +1,48 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:13
-    container_name: project1_postgres
-    environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin123
-      POSTGRES_DB: project1_db
+    container_name: test_postgres_clean
     ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - "5434:5432"
     restart: always
+    env_file:
+      - .env
+
+  airflow-webserver:
+    image: apache/airflow:2.7.2
+    container_name: airflow_webserver
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgres:5432/project1_db
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    volumes:
+      - airflow_db:/opt/airflow
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/scripts:/opt/airflow/scripts
+      - ./warehouse:/opt/airflow/warehouse
+    ports:
+      - "8080:8080"
+    command: webserver
+
+  airflow-scheduler:
+    image: apache/airflow:2.7.2
+    container_name: airflow_scheduler
+    depends_on:
+      - postgres
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin123@postgres:5432/project1_db
+      AIRFLOW__CORE__PARALLELISM: 2
+      AIRFLOW__CORE__DAG_CONCURRENCY: 1
+      AIRFLOW__CORE__MAX_ACTIVE_TASKS_PER_DAG: 1
+    volumes:
+      - airflow_db:/opt/airflow
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/scripts:/opt/airflow/scripts
+      - ./warehouse:/opt/airflow/warehouse
+    command: scheduler
 
 volumes:
-  postgres_data:
+  airflow_db:
